@@ -1,8 +1,18 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿
+    @{
+        ViewData["Title"] = "Home Page";
+    }
+
+    @inject LanguageService language
+
+
+    @* <h1 class="display-4">@Localizer["welcome"]</h1> *@
+@if (User.Identity.IsAuthenticated){
+    <div class="text-center">
+        <h1 class="display-4">@language.GetKey("welcome")</h1>  
+
+
+        <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    </div>
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>

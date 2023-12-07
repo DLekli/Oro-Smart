@@ -52,6 +52,11 @@
 
 @using Oro_Smart.Data.ViewModels;
 @model LoginVM;
+@* Javascript for validation *@
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
+
 
 @{
     ViewData["Title"] = "Log in to your account";
@@ -146,10 +151,12 @@
     }
 </style>
 
+
+
 <div class="container">
     <div class="card p-4">
         <div class="card-content">
-            <form asp-action="Login">
+            <form asp-action="Login" method="post" id="loginForm">
                 <h4 class="card-header text-center mb-4">Log in to your account</h4>
 
                 @if (TempData["Error"] != null)
@@ -181,3 +188,12 @@
         </div>
     </div>
 </div>
+
+ <script>
+
+    {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    
+</script> 
