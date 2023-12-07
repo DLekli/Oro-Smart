@@ -27,7 +27,7 @@ builder.Services.AddMvc()
     {
         options.DataAnnotationLocalizerProvider = (type, factory) =>
         {
-          
+
             var assemblyName = new AssemblyName(typeof(SharedResources).GetTypeInfo().Assembly.FullName);
             return factory.Create("SharedResource", assemblyName.Name);
         };

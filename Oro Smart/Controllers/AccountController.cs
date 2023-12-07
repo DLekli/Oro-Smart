@@ -72,41 +72,7 @@ namespace Oro_Smart.Controllers
             return View(viewModel);
         }
 
-        /*[HttpPost]
-        public async Task<IActionResult> Settings(SettingsViewModel model)
-        {
-            if (ModelState.IsValid)
-            {
-                // Retrieve the current user
-                var user = await _userManager.GetUserAsync(User);
-
-                // Update user data
-                user.FullName = model.FullName;
-                user.Email = model.Email;
-
-                // Update password if provided
-                if (!string.IsNullOrEmpty(model.NewPassword))
-                {
-                    var result = await _userManager.ChangePasswordAsync(user, null, model.NewPassword);
-
-                    if (!result.Succeeded)
-                    {
-                        // Handle password change failure (e.g., invalid password)
-                        ModelState.AddModelError(string.Empty, "Password change failed.");
-                        return View(model);
-                    }
-                }
-
-                // Update user in the database
-                await _userManager.UpdateAsync(user);
-
-                // Redirect to a success page or refresh the settings page
-                return RedirectToAction("Settings", new { success = true });
-            }
-
-            // If here, there are validation errors, return the view with errors
-            return View(model);
-        }*/
+       
 
         [HttpPost]
         public async Task<IActionResult> Settings(SettingsViewModel model)
